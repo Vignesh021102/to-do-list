@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandstander&display=swap');
+
+    
+$color:white;
+$border:white 1.5px solid;
+@mixin flex($direction,$justify,$align) {
+    display:flex;
+    flex-direction:$direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+body {
+    background: linear-gradient(to bottom , rgb(117, 0, 167),rgb(23, 0, 105));
+    margin:0px;
+    min-height: 100vh;
+    width: 100vw;
+    @include flex (column,center,center);
+    #container {
+        min-height:95vh;
+        width:95vw;
+        background: transparent;
+        #container2 {
+            @include flex (column,flex-start,center);
+            #inputs {
+                 border: $border;
+                 border-radius: 5px;
+                 min-height:23vh;
+                 width:95vw;
+                @include flex (column,flex-start,center);
+                textarea {
+                    font-family: 'Grandstander', cursive;
+                    font-size: 20px;
+                    background: transparent;
+                    color: $color;
+                    height:18vh;
+                    width:93vw;
+                    resize: none;
+                    outline: none;
+                    border:none;
+                  &:focus {
+                      outline: none;
+                  }
+                  &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                }
+                #button-box {
+                    min-height:4vh;
+                    width:95vw;
+                    background: transparent;
+                    padding:1px;
+                    @include flex (row,space-around,center);
+                    button {
+                        height: 5vh;
+                        width:8vw;
+                        background: transparent;
+                        color: $color;
+                        border: $border;
+                        border-radius: 3px;
+                        outline: none;
+                        margin: 2px;
+                        &:focus,&:hover {
+                            outline: none;
+                            background-color: rgba(128, 128, 128, 0.507);
+                        }
+                    }
+                }
+                
+            }
+            .notes {
+                border: $border;
+                color:$color;
+                font-size: 20px;
+                font-family: 'Grandstander', cursive;
+                min-height:17vh;
+                width: 92vw;
+                white-space: pre-wrap;
+                margin:1vh 0px;
+                overflow-y: hidden;
+                padding:1vh 1vw;
+                @include flex(column,space-between,flex-start);
+                #message {
+                    min-height:15vh;
+                    width: 92vw;
+                    overflow: hidden;
+                }
+               #button-box2 {
+                @include flex(row,space-around,center);
+                width: 92vw;
+                button {
+                    height: 5vh;
+                    width:8vw;
+                    background: transparent;
+                    color: $color;
+                    border: $border;
+                    border-radius: 3px;
+                    outline: none;
+                    margin: 2px;
+                    &:focus,&:hover {
+                        outline: none;
+                        background-color: rgba(128, 128, 128, 0.507);
+                    }
+               } 
+            }
+        }
+        .deleted {
+            background: rgba(128, 128, 128, 0.514);
+            text-decoration:line-through grey 3px;
+        }
+    }
+} }
+::-webkit-scrollbar {
+    width:1.2vw;
+    height: 100%;
+}
+::-webkit-scrollbar-track {
+    background:  linear-gradient(to bottom , rgb(117, 0, 167),rgb(23, 0, 105));
+}
+::-webkit-scrollbar-thumb {
+    background :rgba(255, 255, 255, 0.7);
+    &:active {
+        background :rgba(255, 255, 255, 0.3); 
+    }
+}
